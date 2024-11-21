@@ -2,20 +2,32 @@ trigger:
   - main
 
 pool:
-  name: Self-hosted
+  name: Self-hosted # Ensure this matches your self-hosted agent's pool name
 
 steps:
+  # Step 1: Use the .NET SDK (Specify .NET 8 SDK)
   - task: UseDotNet@2
+    displayName: 'Install .NET 8 SDK'
     inputs:
+      packageType: 'sdk'
       version: '8.0.x'
 
-  - script: dotnet build
-    displayName: 'Build the project'
+  # Step 2: Restore Dependencies for the Specific Project
+  - script: dotnet restore "Lab4Console/Lab4Console.csproj"
+    displayName: 'Restore NuGet Packages for MySpecificProject'
 
-  - script: dotnet pack --configuration Release
-    displayName: 'Pack the NuGet package'
+  # Step 3: Build the Specific Project
+  - script: dotnet build "Lab4Console/Lab4Console.csproj" --configuration Release
+    displayName: 'Build MySpecificProject'
 
+  # Step 4: Pack the Specific Project as a NuGet Package
+  - script: dotnet pack "Lab4Console/Lab4Console.csproj" --configuration Release --output $(Build.ArtifactStagingDirectory)
+    displayName: 'Pack MySpecificProject as NuGet Package'
+
+  # Step 5: Authenticate with Azure Artifacts Feed
   - task: NuGetAuthenticate@1
+    displayName: 'Authenticate with NuGet'
 
-  - script: dotnet nuget push "**/*.nupkg" --source <Azure-Artifacts-Feed-URL>
-    displayName: 'Push package to Azure Artifacts Feed'
+  # Step 6: Push the NuGet Package to Azure Artifacts Feed
+  - script: dotnet nuget push "$(Build.ArtifactStagingDirectory)/*.nupkg" --source https://pkgs.dev.azure.com/Vivekkundaliya/_packaging/<FeedName>/nuget/v3/index.json --api-key AzureArtifacts
+    displayName: 'Push NuGet Package to Azure Artifacts'

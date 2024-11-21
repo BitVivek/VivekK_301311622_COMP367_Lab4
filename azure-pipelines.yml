@@ -1,0 +1,21 @@
+trigger:
+  - main
+
+pool:
+  name: Self-hosted
+
+steps:
+  - task: UseDotNet@2
+    inputs:
+      version: '8.0.x'
+
+  - script: dotnet build
+    displayName: 'Build the project'
+
+  - script: dotnet pack --configuration Release
+    displayName: 'Pack the NuGet package'
+
+  - task: NuGetAuthenticate@1
+
+  - script: dotnet nuget push "**/*.nupkg" --source <Azure-Artifacts-Feed-URL>
+    displayName: 'Push package to Azure Artifacts Feed'

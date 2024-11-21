@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "VivekK_301311622_COMP367_Lab4/1.0.0": {
+        "runtime": {
+          "VivekK_301311622_COMP367_Lab4.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "VivekK_301311622_COMP367_Lab4/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

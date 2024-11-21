@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35027.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VivekK_301311622_COMP367_Lab4", "VivekK_301311622_COMP367_Lab4\VivekK_301311622_COMP367_Lab4.csproj", "{588BFD20-B484-421F-9DA2-A8EB6BE581DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab4Console", "Lab4Console\Lab4Console.csproj", "{06DBD029-3EC1-46ED-9501-7A2E7D797F7E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{588BFD20-B484-421F-9DA2-A8EB6BE581DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{588BFD20-B484-421F-9DA2-A8EB6BE581DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{588BFD20-B484-421F-9DA2-A8EB6BE581DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{588BFD20-B484-421F-9DA2-A8EB6BE581DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06DBD029-3EC1-46ED-9501-7A2E7D797F7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06DBD029-3EC1-46ED-9501-7A2E7D797F7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06DBD029-3EC1-46ED-9501-7A2E7D797F7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06DBD029-3EC1-46ED-9501-7A2E7D797F7E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CAC989D8-59FE-42AD-AB13-33618CF876B3}
+	EndGlobalSection
+EndGlobal

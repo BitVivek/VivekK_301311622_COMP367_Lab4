@@ -1,0 +1,11 @@
+D:\Centennial\Sem_4\Devops\VivekK_301311622_COMP367_Lab4\VivekK_301311622_COMP367_Lab4\bin\Debug\net8.0\VivekK_301311622_COMP367_Lab4.deps.json
+D:\Centennial\Sem_4\Devops\VivekK_301311622_COMP367_Lab4\VivekK_301311622_COMP367_Lab4\bin\Debug\net8.0\VivekK_301311622_COMP367_Lab4.dll
+D:\Centennial\Sem_4\Devops\VivekK_301311622_COMP367_Lab4\VivekK_301311622_COMP367_Lab4\bin\Debug\net8.0\VivekK_301311622_COMP367_Lab4.pdb
+D:\Centennial\Sem_4\Devops\VivekK_301311622_COMP367_Lab4\VivekK_301311622_COMP367_Lab4\obj\Debug\net8.0\VivekK_301311622_COMP367_Lab4.GeneratedMSBuildEditorConfig.editorconfig
+D:\Centennial\Sem_4\Devops\VivekK_301311622_COMP367_Lab4\VivekK_301311622_COMP367_Lab4\obj\Debug\net8.0\VivekK_301311622_COMP367_Lab4.AssemblyInfoInputs.cache
+D:\Centennial\Sem_4\Devops\VivekK_301311622_COMP367_Lab4\VivekK_301311622_COMP367_Lab4\obj\Debug\net8.0\VivekK_301311622_COMP367_Lab4.AssemblyInfo.cs
+D:\Centennial\Sem_4\Devops\VivekK_301311622_COMP367_Lab4\VivekK_301311622_COMP367_Lab4\obj\Debug\net8.0\VivekK_301311622_COMP367_Lab4.csproj.CoreCompileInputs.cache
+D:\Centennial\Sem_4\Devops\VivekK_301311622_COMP367_Lab4\VivekK_301311622_COMP367_Lab4\obj\Debug\net8.0\VivekK_301311622_COMP367_Lab4.dll
+D:\Centennial\Sem_4\Devops\VivekK_301311622_COMP367_Lab4\VivekK_301311622_COMP367_Lab4\obj\Debug\net8.0\refint\VivekK_301311622_COMP367_Lab4.dll
+D:\Centennial\Sem_4\Devops\VivekK_301311622_COMP367_Lab4\VivekK_301311622_COMP367_Lab4\obj\Debug\net8.0\VivekK_301311622_COMP367_Lab4.pdb
+D:\Centennial\Sem_4\Devops\VivekK_301311622_COMP367_Lab4\VivekK_301311622_COMP367_Lab4\obj\Debug\net8.0\ref\VivekK_301311622_COMP367_Lab4.dll

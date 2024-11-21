@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Lab4Console/1.0.0": {
+        "dependencies": {
+          "VivekK_301311622_COMP367_Lab4": "1.0.0"
+        },
+        "runtime": {
+          "Lab4Console.dll": {}
+        }
+      },
+      "VivekK_301311622_COMP367_Lab4/1.0.0": {
+        "runtime": {
+          "VivekK_301311622_COMP367_Lab4.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Lab4Console/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "VivekK_301311622_COMP367_Lab4/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

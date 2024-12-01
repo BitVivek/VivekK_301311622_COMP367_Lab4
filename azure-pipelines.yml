@@ -6,6 +6,10 @@ pool:
 
 steps:
   # Step 1: Use the .NET SDK (Specify .NET 8 SDK)
+  - script: |
+      export HOME=$(System.DefaultWorkingDirectory)
+      echo "HOME is set to $HOME"
+    displayName: 'Set HOME environment variable'
   - task: UseDotNet@2
     displayName: 'Install .NET 8 SDK'
     inputs:
@@ -14,15 +18,15 @@ steps:
 
   # Step 2: Restore Dependencies for the Specific Project
   - script: dotnet restore "Lab4Console/Lab4Console.csproj"
-    displayName: 'Restore NuGet Packages for MySpecificProject'
+    displayName: 'Restore NuGet Packages for Check Upper String Project'
   
   # Step 2A: Restore Dependencies for Project A (Library)
   - script: dotnet restore "VivekK_301311622_COMP367_Lab4/VivekK_301311622_COMP367_Lab4.csproj"
-    displayName: 'Restore NuGet Packages for Library Project'
+    displayName: 'Restore NuGet Packages for Check Upper String Project Library Project'
   
   # Step 3: Build the Specific Project
   - script: dotnet build "Lab4Console/Lab4Console.csproj" --configuration Release
-    displayName: 'Build MySpecificProject'
+    displayName: 'Build Check Upper String Project'
     
   # Step 3A: Build Project A (Library)
   - script: dotnet build "VivekK_301311622_COMP367_Lab4/VivekK_301311622_COMP367_Lab4.csproj" --configuration Release
@@ -30,11 +34,11 @@ steps:
 
   # Step 4: Pack the Specific Project as a NuGet Package
   - script: dotnet pack "Lab4Console/Lab4Console.csproj" --configuration Release --output $(Build.ArtifactStagingDirectory)
-    displayName: 'Pack MySpecificProject as NuGet Package'
+    displayName: 'Pack Check Upper String Project as NuGet Package'
   
   # Step 4A: Pack Project A (Library) as a NuGet Package
   - script: dotnet pack "VivekK_301311622_COMP367_Lab4/VivekK_301311622_COMP367_Lab4.csproj" --configuration Release --output $(Build.ArtifactStagingDirectory)
-    displayName: 'Pack Library Project as NuGet Package'
+    displayName: 'Pack Check Upper String Project Library Project as NuGet Package'
 
   # Step 5: Authenticate with Azure Artifacts Feed
   - task: NuGetAuthenticate@1

@@ -16,3 +16,4 @@ D:\Centennial\Sem_4\Devops\VivekK_301311622_COMP367_Lab4\Lab4Console\obj\Debug\n
 D:\Centennial\Sem_4\Devops\VivekK_301311622_COMP367_Lab4\Lab4Console\obj\Debug\net8.0\Lab4Console.pdb
 D:\Centennial\Sem_4\Devops\VivekK_301311622_COMP367_Lab4\Lab4Console\obj\Debug\net8.0\Lab4Console.genruntimeconfig.cache
 D:\Centennial\Sem_4\Devops\VivekK_301311622_COMP367_Lab4\Lab4Console\obj\Debug\net8.0\ref\Lab4Console.dll
+D:\Centennial\Sem_4\Devops\VivekK_301311622_COMP367_Lab4\Lab4Console\obj\Debug\net8.0\Lab4Console.sourcelink.json

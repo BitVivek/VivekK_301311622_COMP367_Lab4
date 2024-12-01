@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>VivekK_301311622_COMP367_Lab4</id>
+    <version>1.0.0</version>
+    <authors>VivekK_301311622_COMP367_Lab4</authors>
+    <readme>readme.md</readme>
+    <description>Package Description</description>
+    <repository type="git" commit="bcc2890521eeb105cd82bd98752b6cdffbc3c5b2" />
+    <dependencies>
+      <group targetFramework="net8.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="D:\Centennial\Sem_4\Devops\VivekK_301311622_COMP367_Lab4\VivekK_301311622_COMP367_Lab4\bin\Debug\net8.0\VivekK_301311622_COMP367_Lab4.dll" target="lib\net8.0\VivekK_301311622_COMP367_Lab4.dll" />
+    <file src="D:\Centennial\Sem_4\Devops\VivekK_301311622_COMP367_Lab4\VivekK_301311622_COMP367_Lab4\docs\readme.md" target="\readme.md" />
+  </files>
+</package>

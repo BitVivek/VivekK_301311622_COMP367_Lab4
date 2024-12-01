@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("VivekK_301311622_COMP367_Lab4")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bcc2890521eeb105cd82bd98752b6cdffbc3c5b2")]
 [assembly: System.Reflection.AssemblyProductAttribute("VivekK_301311622_COMP367_Lab4")]
 [assembly: System.Reflection.AssemblyTitleAttribute("VivekK_301311622_COMP367_Lab4")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

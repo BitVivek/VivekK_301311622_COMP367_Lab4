@@ -46,8 +46,11 @@ steps:
     displayName: 'Pack Console Project as NuGet Package'
 
   # Step 8: Authenticate with Azure Artifacts Feed
+  
   - task: NuGetAuthenticate@1
-    displayName: 'Authenticate with NuGet'
+    inputs:
+      feedUrl: 'https://pkgs.dev.azure.com/Vivekkundaliya/VivekK_301311622_COMP367_Lab4/_packaging/Lab4Feed1/nuget/v3/index.json'
+      forceReinstallCredentialProvider: true
 
   # Step 6: Push the NuGet Package to Azure Artifacts Feed
 

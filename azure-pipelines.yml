@@ -54,7 +54,7 @@ steps:
   #     dotnet pack --configuration Release -o $(Build.ArtifactStagingDirectory)
   #   displayName: 'Build and Package'
  
-  - task: NuGetCommand@2
+  - task: DotNetCoreCLI@2
     inputs:
       command: 'push'
       packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'

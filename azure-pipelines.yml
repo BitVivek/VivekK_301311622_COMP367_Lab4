@@ -4,6 +4,9 @@ trigger:
 pool:
   name: Self-hosted # Ensure this matches your self-hosted agent's pool name
 
+variables:
+  DOTNET_CLI_HOME: $(System.DefaultWorkingDirectory) 
+  
 steps:
   # Step 0: Set HOME environment variable
   - script: |

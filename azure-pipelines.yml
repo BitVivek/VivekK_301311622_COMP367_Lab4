@@ -4,56 +4,39 @@ trigger:
 pool:
   name: Self-hosted # Ensure this matches your self-hosted agent's pool name
 
-variables:
-  DOTNET_CLI_HOME: $(System.DefaultWorkingDirectory) 
-  
 steps:
-  # Step 0: Set HOME environment variable
-  - script: |
-      export HOME=$(System.DefaultWorkingDirectory)
-      echo "HOME is set to $HOME"
-    displayName: 'Set HOME environment variable'
-
-  # Step 1: Install the .NET SDK
+  # Step 1: Use the .NET SDK (Specify .NET 8 SDK)
   - task: UseDotNet@2
     displayName: 'Install .NET 8 SDK'
     inputs:
       packageType: 'sdk'
       version: '8.0.x'
 
-  # Step 2: Restore Dependencies for the Library Project
-  - script: dotnet restore "VivekK_301311622_COMP367_Lab4/VivekK_301311622_COMP367_Lab4.csproj"
-    displayName: 'Restore NuGet Packages for Library Project'
-
-  # Step 3: Build the Library Project
-  - script: dotnet build "VivekK_301311622_COMP367_Lab4/VivekK_301311622_COMP367_Lab4.csproj" --configuration Release
-    displayName: 'Build Library Project'
-
-  # Step 4: Pack the Library Project as a NuGet Package
-  - script: dotnet pack "VivekK_301311622_COMP367_Lab4/VivekK_301311622_COMP367_Lab4.csproj" --configuration Release --output $(Build.ArtifactStagingDirectory)
-    displayName: 'Pack Library Project as NuGet Package'
-
-  # Step 5: Restore Dependencies for the Console Project
+  # Step 2: Restore Dependencies for the Specific Project
   - script: dotnet restore "Lab4Console/Lab4Console.csproj"
-    displayName: 'Restore NuGet Packages for Console Project'
+    displayName: 'Restore NuGet Packages for MySpecificProject'
 
-  # Step 6: Build the Console Project
+  # Step 3: Build the Specific Project
   - script: dotnet build "Lab4Console/Lab4Console.csproj" --configuration Release
-    displayName: 'Build Console Project'
+    displayName: 'Build MySpecificProject'
 
-  # Step 7: Pack the Console Project as a NuGet Package
+  # Step 4: Pack the Specific Project as a NuGet Package
   - script: dotnet pack "Lab4Console/Lab4Console.csproj" --configuration Release --output $(Build.ArtifactStagingDirectory)
-    displayName: 'Pack Console Project as NuGet Package'
+    displayName: 'Pack MySpecificProject as NuGet Package'
 
-  # Step 8: Authenticate with Azure Artifacts Feed
+  # Step 5: Authenticate with Azure Artifacts Feed
   - task: NuGetAuthenticate@1
     displayName: 'Authenticate with NuGet'
 
   # Step 6: Push the NuGet Package to Azure Artifacts Feed
-
-  - script: 
-      unset NUGET_HTTP_CACHE_PATH
-      unset NUGET_PACKAGES
-      unset DOTNET_ROOT
-      dotnet nuget push "$(Build.ArtifactStagingDirectory)/*.nupkg" --source https://pkgs.dev.azure.com/Vivekkundaliya/VivekK_301311622_COMP367_Lab4/_packaging/Lab4Feed1/nuget/v3/index.json --api-key AzureArtifacts --skip-duplicate
+  - script: dotnet nuget push "$(Build.ArtifactStagingDirectory)/*.nupkg" --source https://pkgs.dev.azure.com/Vivekkundaliya/VivekK_301311622_COMP367_Lab4/_packaging/Lab4feed/nuget/v3/index.json --api-key AzureArtifacts --skip-duplicate
     displayName: 'Push NuGet Package to Azure Artifacts'
+    
+
+  # - task: NuGetCommand@2
+  #   inputs:
+  #     command: 'push'
+  #     packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
+  #     nuGetFeedType: 'internal'
+  #     publishVstsFeed: '496d5d82-f241-427a-bf54-1154eb232530/34cd32f2-fc48-423a-8f89-1a3dd4834310'
+  #     allowPackageConflicts: true

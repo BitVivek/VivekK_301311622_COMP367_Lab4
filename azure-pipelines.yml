@@ -15,14 +15,26 @@ steps:
   # Step 2: Restore Dependencies for the Specific Project
   - script: dotnet restore "Lab4Console/Lab4Console.csproj"
     displayName: 'Restore NuGet Packages for MySpecificProject'
-
+  
+  # Step 2A: Restore Dependencies for Project A (Library)
+  - script: dotnet restore "VivekK_301311622_COMP367_Lab4/VivekK_301311622_COMP367_Lab4.csproj"
+    displayName: 'Restore NuGet Packages for Library Project'
+  
   # Step 3: Build the Specific Project
   - script: dotnet build "Lab4Console/Lab4Console.csproj" --configuration Release
     displayName: 'Build MySpecificProject'
+    
+  # Step 3A: Build Project A (Library)
+  - script: dotnet build "VivekK_301311622_COMP367_Lab4/VivekK_301311622_COMP367_Lab4.csproj" --configuration Release
+    displayName: 'Build Library Project'
 
   # Step 4: Pack the Specific Project as a NuGet Package
   - script: dotnet pack "Lab4Console/Lab4Console.csproj" --configuration Release --output $(Build.ArtifactStagingDirectory)
     displayName: 'Pack MySpecificProject as NuGet Package'
+  
+  # Step 4A: Pack Project A (Library) as a NuGet Package
+  - script: dotnet pack "VivekK_301311622_COMP367_Lab4/VivekK_301311622_COMP367_Lab4.csproj" --configuration Release --output $(Build.ArtifactStagingDirectory)
+    displayName: 'Pack Library Project as NuGet Package'
 
   # Step 5: Authenticate with Azure Artifacts Feed
   - task: NuGetAuthenticate@1
@@ -32,7 +44,9 @@ steps:
   - script: dotnet nuget push "$(Build.ArtifactStagingDirectory)/*.nupkg" --source https://pkgs.dev.azure.com/Vivekkundaliya/VivekK_301311622_COMP367_Lab4/_packaging/Lab4feed/nuget/v3/index.json --api-key AzureArtifacts --skip-duplicate
     displayName: 'Push NuGet Package to Azure Artifacts'
     
-
+  # Step 6A: Push the Library NuGet Package to Azure Artifacts
+  - script: dotnet nuget push "$(Build.ArtifactStagingDirectory)/*.nupkg" --source https://pkgs.dev.azure.com/Vivekkundaliya/VivekK_301311622_COMP367_Lab4/_packaging/Lab4feed/nuget/v3/index.json --api-key AzureArtifacts --skip-duplicate
+    displayName: 'Push Library NuGet Package to Azure Artifacts'
   # - task: NuGetCommand@2
   #   inputs:
   #     command: 'push'

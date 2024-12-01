@@ -46,17 +46,17 @@ steps:
     displayName: 'Pack Console Project as NuGet Package'
 
   # Step 8: Authenticate with Azure Artifacts Feed
-  
-  - task: NuGetAuthenticate@1
+   
+  - task: NuGetToolInstaller@1
+ 
+  # - script: |
+  #     dotnet build --configuration Release
+  #     dotnet pack --configuration Release -o $(Build.ArtifactStagingDirectory)
+  #   displayName: 'Build and Package'
+ 
+  - task: NuGetCommand@2
     inputs:
-      feedUrl: 'https://pkgs.dev.azure.com/Vivekkundaliya/VivekK_301311622_COMP367_Lab4/_packaging/Lab4Feed1/nuget/v3/index.json'
-      forceReinstallCredentialProvider: true
-
-  # Step 6: Push the NuGet Package to Azure Artifacts Feed
-
-  - script: 
-      unset NUGET_HTTP_CACHE_PATH
-      unset NUGET_PACKAGES
-      unset DOTNET_ROOT
-      dotnet nuget push "$(Build.ArtifactStagingDirectory)/*.nupkg" --source https://pkgs.dev.azure.com/Vivekkundaliya/VivekK_301311622_COMP367_Lab4/_packaging/Lab4Feed1/nuget/v3/index.json --api-key AzureArtifacts --skip-duplicate
-    displayName: 'Push NuGet Package to Azure Artifacts'
+      command: 'push'
+      packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
+      publishVstsFeed: 'VivekK_301311622_COMP367_lab4/Lab4Feed1' # Update accordingly
+      allowPackageConflicts: true

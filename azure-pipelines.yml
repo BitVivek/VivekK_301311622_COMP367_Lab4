@@ -57,12 +57,18 @@ steps:
 
   #   displayName: 'Push Library NuGet Package to Azure Artifacts'
 
+  - script: |
+      echo "Listing packages in $(Build.ArtifactStagingDirectory):"
+      ls "$(Build.ArtifactStagingDirectory)"
+      dotnet nuget push "$(Build.ArtifactStagingDirectory)/**/*.nupkg" \
+        --source https://pkgs.dev.azure.com/Vivekkundaliya/VivekK_301311622_COMP367_Lab4/_packaging/Lab4feed/nuget/v3/index.json \
+        --api-key AzureArtifacts --skip-duplicate
+    displayName: 'Push NuGet Packages to Azure Artifacts'
 
-
-  - task: NuGetCommand@2
-    inputs:
-      command: 'push'
-      packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
-      nuGetFeedType: 'internal'
-      publishVstsFeed: '496d5d82-f241-427a-bf54-1154eb232530/34cd32f2-fc48-423a-8f89-1a3dd4834310'
-      allowPackageConflicts: true
+  # - task: NuGetCommand@2
+  #   inputs:
+  #     command: 'push'
+  #     packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
+  #     nuGetFeedType: 'internal'
+  #     publishVstsFeed: '496d5d82-f241-427a-bf54-1154eb232530/34cd32f2-fc48-423a-8f89-1a3dd4834310'
+  #     allowPackageConflicts: true
